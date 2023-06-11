@@ -6,7 +6,10 @@ const routes: Routes = [
 
   //default path 
 
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+ //for the student related things
+//lazy loading
+{path:"user",loadChildren:()=>import('./modules/user/user.module').then(mod=>mod.UserModule)},
 ];
 
 @NgModule({

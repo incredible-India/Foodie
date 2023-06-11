@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FileNotFoundComponent } from './Components/file-not-found/file-not-found.component';
+import { UserModule } from './modules/user/user.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FileNotFoundComponent } from './Components/file-not-found/file-not-foun
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

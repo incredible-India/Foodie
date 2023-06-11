@@ -1,1 +1,42 @@
-<p>header works!</p>
+<div class="main-com">
+    <div class="back">
+
+        <nav class="navbar navbar-expand-lg main">
+            <div class="container-fluid sub-main">
+                <a class="navbar-brand txt" style="font-size:23px" href="#"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Foodie</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav navStart">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                              Home   <i class="fas fa-home"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features
+                                 <i class="fas fa-cog"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Foodie User
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/user/newuser">New User</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <router-outlet></router-outlet>
