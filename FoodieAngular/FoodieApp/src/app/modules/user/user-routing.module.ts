@@ -5,7 +5,7 @@ import { NewuserComponent } from './newuser/newuser.component';
 const routes: Routes = [
 
   //new user registration
-  {path: 'newuser', component:NewuserComponent}
+  {path: '', component:NewuserComponent}
 ];
 
 @NgModule({
