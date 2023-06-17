@@ -33,7 +33,7 @@ namespace Foodie.Services
                 return new ContentResult
                 {
                     StatusCode = 400,
-                    Content = "{'message' : 'Email Already Exist'}", //  JSON content here
+                    Content = "Email Already Exist", //  JSON content here
                     ContentType = "application/json"
                 };
             }
@@ -56,7 +56,7 @@ namespace Foodie.Services
                   return new ContentResult
                     {
                         StatusCode = 200,
-                        Content = "{'message' : 'User Added succesfully'}", //  JSON content here
+                        Content = "User Added succesfully", //  JSON content here
                         ContentType = "application/json"
                     };
 
@@ -67,7 +67,7 @@ namespace Foodie.Services
                     return new ContentResult
                     {
                         StatusCode = 400,
-                        Content = "{'message' : 'Something went wrong'}", //  JSON content here
+                        Content = "Something went wrong", //  JSON content here
                         ContentType = "application/json"
                     };
                 }

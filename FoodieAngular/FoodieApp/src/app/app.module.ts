@@ -7,6 +7,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FileNotFoundComponent } from './Components/file-not-found/file-not-found.component';
 import { UserModule } from './modules/user/user.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { UserModule } from './modules/user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
     
 
   ],

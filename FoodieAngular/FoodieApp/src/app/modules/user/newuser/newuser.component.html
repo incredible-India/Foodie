@@ -3,26 +3,26 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-          <form action="">
+          <form  [formGroup]="userRegistration" (ngSubmit)="submitForm()" >
             <label for="Name">Name</label>
-            <input type="text" name="name" id="Name" class="form-control">
+            <input type="text" name="name" id="Name" class="form-control" formControlName="name">
 
             <label for="Email">Email</label>
-            <input type="email" name="email" id="Email" class="form-control">
+            <input type="email" name="email" id="Email" class="form-control" formControlName="email">
 
 
             <label for="Phone">Phone</label>
-            <input type="text" name="email" id="Phone" class="form-control">
+            <input type="text" name="email" id="Phone" class="form-control" formControlName="phone">
 
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control">
+            <input type="password" name="password" id="password" class="form-control" formControlName="password">
 
             <label for="address">Address</label>
-            <textarea name="address" id="address" class="form-control"cols="10" rows="5"></textarea>
+            <textarea name="address" id="address" class="form-control"cols="10" rows="5" formControlName="address"></textarea>
 
 
  
-                <input type="submit" value="Submit" class="btn btn-outline-danger mt-3">
+                <input type="submit" value="Submit" class="btn btn-outline-danger mt-3" [disabled]="userRegistration.invalid">
               <a href="" class="btn btn-outline-success  mt-3 mx-2 ">Log in</a>
         
 
