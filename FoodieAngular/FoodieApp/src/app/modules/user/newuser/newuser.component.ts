@@ -15,7 +15,8 @@ constructor(private communication:Communication)
 
 }
 userRegistration: any;
-
+showErrorMessage:boolean = false;
+Errortext:string = "";
   ngOnInit(): void {
   
     this.userRegistration = new FormGroup({
@@ -38,10 +39,15 @@ userRegistration: any;
     }
 
    this.communication.newUserRequest(newuser).subscribe(r=>{
-    console.log(r);
-   },(error: any) => {
-    console.error('Error in newUserRequest', error);
-  }
+    if(r.status !== 200)
+    {
+      this.showErrorMessage = true;
+      this.Errortext = r.Message;
+    }else{
+      
+    }
+   }
+  
    
    )
 

@@ -6,7 +6,7 @@ namespace Foodie.Iservices
     public interface IUser
     {
         //adding new user
-        public Task<ContentResult> NewUserRegistration(Users user);
+        public Task<Dictionary<string, string>> NewUserRegistration(Users user);
 
         //user signIn
         public int UserSignIn(string Email,string Password);

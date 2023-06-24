@@ -24,18 +24,16 @@ namespace Foodie.Services
         }
 
         //new user registration
-        public async Task<ContentResult> NewUserRegistration(Users user)
+        public async Task<Dictionary<string,string>> NewUserRegistration(Users user)
         {
             //first verifu that email already exist or not
-
+            Dictionary<string,string > status = new Dictionary<string, string>();
             Users? u = await _foodie.Users.Where(m => m.Email == user.Email).FirstOrDefaultAsync();
             if(u != null) {
-                return new ContentResult
-                {
-                    StatusCode = 400,
-                    Content = "Email Already Exist", //  JSON content here
-                    ContentType = "application/json"
-                };
+                status.Add("Status", "400");
+                status.Add("Message", "Email Already Exist");
+
+                return status;
             }
             else
             {
@@ -53,23 +51,19 @@ namespace Foodie.Services
                     await _foodie.Users.AddAsync(users);
                     await _foodie.SaveChangesAsync();
 
-                  return new ContentResult
-                    {
-                        StatusCode = 200,
-                        Content = "User Added succesfully", //  JSON content here
-                        ContentType = "application/json"
-                    };
+                    status.Add("Status", "200");
+                    status.Add("Message", "User Added Successfully");
+                    return status;
+
 
                 }
                 catch (Exception)
                 {
-
-                    return new ContentResult
-                    {
-                        StatusCode = 400,
-                        Content = "Something went wrong", //  JSON content here
-                        ContentType = "application/json"
-                    };
+                    status.Add("Status", "400");
+                    status.Add("Message", "Something went Wrong");
+                    return status;
+                    
+                    
                 }
 
 

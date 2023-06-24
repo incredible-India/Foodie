@@ -3,6 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
+          <div class="container error alert alert-danger"*ngIf="showErrorMessage" >{{Errortext}}</div>
           <form  [formGroup]="userRegistration" (ngSubmit)="submitForm()" >
             <label for="Name">Name</label>
             <input type="text" name="name" id="Name" class="form-control" formControlName="name">

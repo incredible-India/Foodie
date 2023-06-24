@@ -69,9 +69,9 @@ namespace Foodie.Controllers
         ///New user registration
         [HttpPut("newuser")]
         [ProducesResponseType(200)]
-        public async Task<ContentResult> NewUser([FromBody] Users user) {
+        public async Task<Dictionary<string,string>> NewUser([FromBody] Users user)  {
             //adding the user information in database return true on success or false for the failure
-            ContentResult isRegistered = await _user.NewUserRegistration(user);
+            Dictionary<string,string> isRegistered = await _user.NewUserRegistration(user);
             return isRegistered;
             
         }
