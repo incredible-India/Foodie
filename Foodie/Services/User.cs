@@ -1,8 +1,11 @@
-﻿using Foodie.Database;
+﻿using Foodie.Authentication.IAuth;
+using Foodie.Database;
 using Foodie.Iservices;
 using Foodie.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Foodie.Services
 {
@@ -10,12 +13,17 @@ namespace Foodie.Services
     {
         //database 
         private readonly FoodieContext _foodie;
-        public User(FoodieContext foodie)
+        private readonly IAuth _auth;
+        //auth
+    
+        public User(FoodieContext foodie,IAuth auth)
         {
             _foodie =   foodie;
-
+            _auth = auth;
+       
         }
         //get the user by its id
+      
         public Users GetUserById(int id)
         {
             Users? users = _foodie.Users.Where(x => x.Id == id).FirstOrDefault();
@@ -24,7 +32,8 @@ namespace Foodie.Services
         }
 
         //new user registration
-        public async Task<Dictionary<string,string>> NewUserRegistration(Users user)
+  
+        public  async Task<Dictionary<string,string>> NewUserRegistration(Users user)
         {
             //first verifu that email already exist or not
             Dictionary<string,string > status = new Dictionary<string, string>();
@@ -32,7 +41,7 @@ namespace Foodie.Services
             if(u != null) {
                 status.Add("Status", "400");
                 status.Add("Message", "Email Already Exist");
-
+                
                 return status;
             }
             else
@@ -53,6 +62,13 @@ namespace Foodie.Services
 
                     status.Add("Status", "200");
                     status.Add("Message", "User Added Successfully");
+                   
+
+
+                    //once user is registerd we will claim the identity
+                    var jwtToken =_auth.GenerateToken(
+                        user);
+                    status.Add("JWT", jwtToken);
                     return status;
 
 

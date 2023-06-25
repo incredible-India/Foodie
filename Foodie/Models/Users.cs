@@ -18,6 +18,9 @@ namespace Foodie.Models
         [Required]
         public string? Address { get; set; }
 
+        [Required]
+        public string? UType { get; set; } = "User";
+
     }
 
 }

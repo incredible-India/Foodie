@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foodie.Migrations
 {
     [DbContext(typeof(FoodieContext))]
-    [Migration("20230624070842_fooddieapp")]
-    partial class fooddieapp
+    [Migration("20230625062805_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,6 +48,10 @@ namespace Foodie.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

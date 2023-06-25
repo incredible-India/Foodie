@@ -1,5 +1,6 @@
 ﻿using Foodie.Iservices;
 using Foodie.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +28,7 @@ namespace Foodie.Controllers
         #region GET
 
         //getting the user by its id
+        [Authorize]
         [HttpGet("user/{id}",Name ="UserByID")]
         public IActionResult GetUserById([FromRoute] int id)
         {
@@ -68,6 +70,7 @@ namespace Foodie.Controllers
         #region PUT
         ///New user registration
         [HttpPut("newuser")]
+        [AllowAnonymous]
         [ProducesResponseType(200)]
         public async Task<Dictionary<string,string>> NewUser([FromBody] Users user)  {
             //adding the user information in database return true on success or false for the failure
